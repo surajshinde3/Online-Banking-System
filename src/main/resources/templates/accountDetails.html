@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/master-page}">
+
+<body>
+	<th:block layout:fragment="content">
+
+		<div class="row">
+
+			<div class="col-3">
+				<h2>Savings Account :</h2>
+			</div>
+			<div class="col-2">
+				<h2>Account Number</h2>
+			</div>
+			<div class="col-2">
+				<h1>
+					<i class="fa fa-usd" aria-hidden="true"></i> <span
+						th:text="${savingsAccount.accountNumber}"></span>
+				</h1>
+
+			</div>
+
+			<div class="col-3">
+				<h2>Account Balance</h2>
+			</div>
+			<div class="col-2">
+
+				<h1>
+					<i class="fa fa-usd" aria-hidden="true"></i> <span
+						th:text="${savingsAccount.accountBalance}">...</span>
+				</h1>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-3">
+				<h2>Salary Account :</h2>
+			</div>
+			<div class="col-2">
+				<h2>Account Number</h2>
+			</div>
+			<div class="col-2">
+				<h1>
+					<i class="fa fa-usd" aria-hidden="true"></i> <span
+						th:text="${salaryAccount.accountNumber}">...</span>
+				</h1>
+
+			</div>
+
+			<div class="col-3">
+				<h2>Account Balance</h2>
+			</div>
+			<div class="col-2">
+
+				<h1>
+					<i class="fa fa-usd" aria-hidden="true"></i> <span
+						th:text="${salaryAccount.accountBalance}">...</span>
+				</h1>
+			</div>
+		</div>
+
+
+	</th:block>
+</body>
+</html>

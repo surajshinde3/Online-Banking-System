@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/master-page}">
+
+<body>
+	<th:block layout:fragment="content">
+
+		<h2 style="text-align: center; color: maroon; font-style: oblique;">Withdraw</h2>
+
+
+		<form th:action="@{/withdrawl}" method="post">
+			<div class="form-group">
+				<label for="accountType">1. Please select the account you
+					would like to withdraw:</label> <select class="form-control"
+					th:value="${accountType}" name="accountType" id="accountType"
+					required="required">
+					<option disabled="disabled" selected="selected">-- select
+						your account --</option>
+					<option>Salary</option>
+					<option>Savings</option>
+				</select> <br />
+			</div>
+
+			<div class="form-group">
+				<label>2. Please specify the amount you would like to
+					withdraw: </label> <span class="input-group-addon">Amount Rs.</span> <input
+					type="text" name="amount" id="amount" class="form-control"
+					aria-label="Amount (to the nearest dollar)" />
+			</div>
+
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Withdraw</button>
+		</form>
+
+		<hr>
+		<p style="font-size: 30px; color: red; text-align: center;">
+			<td data-th-text="${amount1}">...</td>
+		</p>
+		<hr>
+
+
+	</th:block>
+</body>
+</html>

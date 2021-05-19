@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/master-page}">
+
+<body>
+	<th:block layout:fragment="content">
+
+		<h2 style="text-align: center; color: maroon; font-style: oblique;">Transactions</h2>
+
+
+		<form th:action="@{/getTransactions}" method="post">
+			<div class="form-group">
+				<label for="accountType">1. Please select the account you
+					would like to View Transactions:</label> <select class="form-control"
+					th:value="${accountType}" name="accountType" id="accountType"
+					required="required">
+					<option disabled="disabled" selected="selected">-- select
+						your account --</option>
+					<option>Salary</option>
+					<option>Savings</option>
+				</select> <br />
+			</div>
+
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">View
+				Transactions</button>
+			<hr>
+		</form>
+		<table id="example"
+			class="table table-bordered table-hover table-striped">
+			<thead>
+				<tr>
+					<th>Post Date</th>
+					<th>Description</th>
+					<th>Type</th>
+					<th>Status</th>
+					<th>Amount</th>
+					<th>Available Balance</th>
+				</tr>
+			</thead>
+		</table>
+
+		<div class="table-responsive">
+			<table id="example"
+				class="table table-bordered table-hover table-striped">
+
+				<tbody>
+					<tr data-th-each="salaryTransaction : ${salaryTransactionList}">
+						<td data-th-text="${salaryTransaction.date}">...</td>
+						<td data-th-text="${salaryTransaction.description}">...</td>
+						<td data-th-text="${salaryTransaction.type}">...</td>
+						<td data-th-text="${salaryTransaction.status}">...</td>
+						<td data-th-text="${salaryTransaction.amount}">...</td>
+						<td data-th-text="${salaryTransaction.availableBalance}">...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="table-responsive">
+			<table id="example"
+				class="table table-bordered table-hover table-striped">
+
+				<tbody>
+					<tr data-th-each="savingsTransaction : ${savingsTransactionList}">
+						<td data-th-text="${savingsTransaction.date}">...</td>
+						<td data-th-text="${savingsTransaction.description}">...</td>
+						<td data-th-text="${savingsTransaction.type}">...</td>
+						<td data-th-text="${savingsTransaction.status}">...</td>
+						<td data-th-text="${savingsTransaction.amount}">...</td>
+						<td data-th-text="${savingsTransaction.availableBalance}">...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/master-page}">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Register</title>
+</head>
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="row justify-content-md-center">
+			<div class="col-md-12 jumbotron">
+				<h2 style="text-align: center" class="text-dark">Registration
+					Form</h2>
+
+				<form th:action="@{/register}" method="post" class="form">
+					<div class="row">
+						<div class="col-6">
+							<div class="form-group">
+
+								<label><b>First Name</b></label> <input type="text"
+									placeholder="Please Enter First Name" name="firstName"
+									id="firstname" class="form-control" required>
+							</div>
+
+
+							<div class="form-group">
+
+								<label><b>Last Name</b></label> <input type="text"
+									placeholder="Please Enter Last Name" name="lastName"
+									id="lastname" class="form-control" required>
+
+							</div>
+							<div class="form-group">
+								<label><b>Username</b></label> <input type="text"
+									placeholder="Please Enter Username" name="username"
+									id="username" class="form-control" required>
+								<div th:if="${existingusername != null}"
+									class="alert alert-danger notification" role="alert">
+									<p th:text="${existingusername}"></p>
+									<p>Username already exists</p>
+								</div>
+
+							</div>
+							<div class="form-group">
+
+								<label for="email"><b>Email</b></label> <input type="text"
+									placeholder="Please Enter Email" name="email" id="email"
+									class="form-control" required>
+								<div th:if="${existingemail != null}"
+									class="alert alert-danger notification" role="alert">
+									<p th:text="${existingemail}"></p>
+									<p>Email Id already exists</p>
+								</div>
+
+
+							</div>
+
+							<div class="form-group">
+
+								<label><b>Current City</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="currentCity" id="currentCity" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+
+								<label><b>Current State</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="currentState" id="currentState" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Current Country</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="currentCountry" id="currentCountry" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Current PinCode</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="currentPinCode" id="currentPinCode" class="form-control"
+									required>
+							</div>
+						</div>
+						<div class="col-6">
+
+							<div class="form-group">
+
+								<label for="email"><b>Permanent City</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="permanentCity" id="permanentCity" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Permanent State</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="permanentState" id="permanentState" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Permanent Country</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="permanentCountry" id="permanentCountry"
+									class="form-control" required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Permanent PinCode</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="permanentPinCode" id="permanentPinCode"
+									class="form-control" required>
+							</div>
+
+							<div class="form-group">
+
+								<label for="email"><b>Aadhar Number</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="aadharNumber" id="aadharNumber" class="form-control"
+									required>
+							</div>
+							<div class="form-group">
+
+								<label for="email"><b>PAN Number</b></label> <input type="text"
+									placeholder="Please Enter First Name" name="panNumber"
+									id="panNumber" class="form-control" required>
+							</div>
+							<div class="form-group">
+
+								<label for="email"><b>Mobile Number</b></label> <input
+									type="text" placeholder="Please Enter First Name"
+									name="mobileNumber" id="mobileNumber" class="form-control"
+									required>
+							</div>
+
+							<div class="form-group">
+								<label for="psw"><b>Password</b></label> <input type="password"
+									placeholder="Please Enter Password" name="password"
+									id="password" class="form-control" required>
+								<!-- <div th:if="${existingemail != null}"
+							class="alert alert-danger notification" role="alert">
+							<p th:text="${existingemail}"></p>
+							<p>Email Id already exists</p>
+						</div> -->
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-group" style="float: right;">
+						<a href="/" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+						<button type="submit" class="btn btn-outline-success">Register</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</th:block>
+</body>
+</html>
